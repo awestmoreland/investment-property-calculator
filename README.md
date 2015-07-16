@@ -1,5 +1,7 @@
 # Income Property ROI Calculator
 
+<a href="http://awestmoreland.com/investment-calculator/">Demo</a>
+
 ## Why?
 
 Make sure cash flow is positive by taking purchase price and running costs into account. Defaults are conservative for local market (West Michigan).

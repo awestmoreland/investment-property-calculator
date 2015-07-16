@@ -37,12 +37,12 @@
 
       <tr>
         <td class="label">Loan rate %</td>
-        <td><input id="loan-rate" type="number" step="any" value="4.25"></td>
+        <td><input id="loan-rate" type="number" step="any"></td>
       </tr>
 
       <tr>
         <td class="label">Loan duration (years):</td>
-        <td><input id="loan-years" type="number" value="30"></td>
+        <td><input id="loan-years" type="number"></td>
       </tr>
 
       <tr class="divider">
@@ -70,12 +70,12 @@
 
       <tr>
         <td class="label">Annual water bill</td>
-        <td><input  id="water" type="number" value="400"></td>
+        <td><input  id="water" type="number"></td>
       </tr>
 
       <tr>
         <td class="label">Monthly trash bill</td>
-        <td><input  id="trash" type="number" value="25"></td>
+        <td><input  id="trash" type="number"></td>
       </tr>
 
       <tr class="divider">
@@ -108,7 +108,7 @@
 
       <tr>
         <td class="label">Monthly rent (income)</td>
-        <td><input  id="income-rent" type="number" value="1200"></td>
+        <td><input  id="income-rent" type="number"></td>
       </tr>
 
 
@@ -121,7 +121,7 @@
 
       <thead>
         <tr>
-          <th class="label">Item</th>
+          <th class="label">Line item</th>
           <th class="val">Annually</th>
           <th class="val">Monthly</th>
           <th class="notes">Notes</th>
@@ -185,10 +185,7 @@
           <td class="notes"></td>
         </tr>
 
-        <tr class="divider">
-          <td colspan="4">&nbsp;</td>
-        </tr>
-        <tr class="divider">
+        <tr>
           <td colspan="4">&nbsp;</td>
         </tr>
 
@@ -197,7 +194,16 @@
       <tfoot>
 
         <tr class="subhead">
-          <td colspan="4">Totals</td>
+          <th class="label">Totals</th>
+          <th class="val">Annually</th>
+          <th class="val">Monthly</th>
+          <th class="notes">Notes</th>
+        </tr>
+        <tr class="divider">
+          <td colspan="4">&nbsp;</td>
+        </tr>
+        <tr class="divider">
+          <td colspan="4">&nbsp;</td>
         </tr>
 
         <tr class="incoming">
@@ -215,8 +221,12 @@
           <td class="notes"></td>
         </tr>
 
+        <tr class="divider">
+          <td colspan="4">&nbsp;</td>
+        </tr>
+
         <tr class="return">
-          <td class="label">Return</td>
+          <td class="label">ROI</td>
           <td class="val_annually"></td>
           <td class="val_monthly"></td>
           <td class="notes"></td>

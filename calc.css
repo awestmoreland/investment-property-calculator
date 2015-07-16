@@ -83,3 +83,7 @@ h3 span {
 .hidden {
   display: none;
 }
+
+.notes {
+  display: none;
+}
