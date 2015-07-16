@@ -10,6 +10,13 @@ $(function(){
 
   // Populate input values from URL GET params or use defaults
 
+  property = GetURLParameter('property');
+  if(typeof property === "undefined" || property == "") {
+    property = "Income Property";
+  }
+
+  $('#property').val( decodeURI(property) );
+
   $('#purchase-price').val( GetURLParameter('price') || 100000 );
   $('#downpayment-rate').val( GetURLParameter('downrate') || 25 );
   $('#loan-rate').val( GetURLParameter('loanrate') || 4.25);
@@ -34,6 +41,7 @@ $(function(){
 
     // Read values from input fields when any of them change
 
+    // property            = getVal('property');
     principal           = getVal('purchase-price');
     downpayment_rate    = getVal('downpayment-rate');
     downpayment         = getVal('purchase-price') * (downpayment_rate/100);
@@ -109,6 +117,7 @@ function setTotals() {
 }
 
 function setURL(){
+
   base_url = window.location.href.split('?')[0];
   url = base_url;
   url += '?price=' + getVal('purchase-price');
@@ -125,8 +134,12 @@ function setURL(){
   url += '&vacancy=' + getVal('vacancy-factor');
   url += '&collections=' + getVal('collections-factor');
 
-
   url += '&rent=' + getVal('income-rent');
+
+  url += '&property=' + $('#property').val();
+
+  url = encodeURI(url);
+
 
   $('a#link').attr('href', url);
   $('a#reset').attr('href', base_url);

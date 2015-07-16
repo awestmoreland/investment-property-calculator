@@ -76,6 +76,9 @@ h3 span {
 #settings {
   margin-top: 2em;
 }
+#property {
+  text-align: left;
+}
 #url {
   /*width: 100%;*/
 }
