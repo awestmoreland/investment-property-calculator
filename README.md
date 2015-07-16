@@ -13,3 +13,5 @@ Make sure cash flow is positive by taking purchase price and running costs into 
 * Make code pretty: standardize variable, input, GET param names
 * Make numbers pretty: format currency values
 * Include option for one-off maintenance factor (new roof, etc.)
+* Make phone app version
+* Profit

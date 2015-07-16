@@ -1,7 +1,7 @@
 $(function(){
 
   // example call:
-  // [URL]?price=260000&taxable=47000&insurance=2000&water=800&trash=50&rent=2400
+  // [URL]?price=100000&downrate=25&loanrate=4.25&loanyears=30&taxable=50000&taxrate=49.6&insurance=1200&water=400&trash=25&maintenance=0.05&vacancy=0.08&collections=0.1&rent=1200
 
 
   // Hard-coded values
