@@ -22,9 +22,9 @@ $(function(){
   $('#water').val( GetURLParameter('water') || 400 );
   $('#trash').val( GetURLParameter('trash') || 25 );
 
-  $('#maintenance-factor').val( GetURLParameter('maintenance') || 0.05 );
-  $('#vacancy-factor').val( GetURLParameter('vacancy') || 0.08 );
-  $('#collections-factor').val( GetURLParameter('collections') || 0.1 );
+  $('#maintenance-factor').val( GetURLParameter('maintenance') || 5 );
+  $('#vacancy-factor').val( GetURLParameter('vacancy') || 8 );
+  $('#collections-factor').val( GetURLParameter('collections') || 10 );
 
   $('#income-rent').val( GetURLParameter('rent') || 1200 );
 
@@ -53,9 +53,9 @@ $(function(){
     maintenance_factor  = getVal('maintenance-factor');
     vacancy_factor  = getVal('vacancy-factor');
     collections_factor  = getVal('collections-factor');
-    maintenance_y       = mortgage_y * maintenance_factor;
-    vacancy_factor_y    = mortgage_y * vacancy_factor;
-    collection_factor_y = mortgage_y * collections_factor;
+    maintenance_y       = mortgage_y * (maintenance_factor/100);
+    vacancy_factor_y    = mortgage_y * (vacancy_factor/100);
+    collection_factor_y = mortgage_y * (collections_factor/100);
 
 
     $('#downpayment').val(downpayment);
