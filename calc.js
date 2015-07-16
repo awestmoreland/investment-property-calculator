@@ -14,7 +14,7 @@ $(function(){
   if(typeof property === "undefined" || property == "") {
     property = "Income Property";
   }
-
+  document.title = "ROI for " + property;
   $('#property').val( decodeURI(property) );
 
   $('#purchase-price').val( GetURLParameter('price') || 100000 );
@@ -41,7 +41,7 @@ $(function(){
 
     // Read values from input fields when any of them change
 
-    // property            = getVal('property');
+    property            = $('#property').val();
     principal           = getVal('purchase-price');
     downpayment_rate    = getVal('downpayment-rate');
     downpayment         = getVal('purchase-price') * (downpayment_rate/100);
@@ -136,7 +136,9 @@ function setURL(){
 
   url += '&rent=' + getVal('income-rent');
 
-  url += '&property=' + $('#property').val();
+  property = $('#property').val();
+  url += '&property=' + property;
+  document.title = "ROI for " + property;
 
   url = encodeURI(url);
 
