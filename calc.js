@@ -37,33 +37,33 @@ $(function(){
 
 
 
-  $('.input input').on('input', function(){
+  $('.input').on('input', 'input',function(e){
 
     // Read values from input fields when any of them change
 
-    property            = $('#property').val();
-    principal           = getVal('purchase-price');
-    downpayment_rate    = getVal('downpayment-rate');
-    downpayment         = getVal('purchase-price') * (downpayment_rate/100);
-    loan_amount         = getVal('purchase-price') - downpayment;
-    loan_rate           = getVal('loan-rate');
-    loan_years          = getVal('loan-years');
-    mortgage_m          = pmt(loan_amount, loan_rate / 100 / 12, loan_years * 12);
-    mortgage_y          = annually(mortgage_m);
-    tax_rate            = getVal('taxrate');
-    property_tax_y      = getVal('taxval') * (tax_rate/1000);
-    property_insure_y   = getVal('insurance');
-    water_y             = getVal('water');
-    trash_m             = getVal('trash');
-    trash_y             = annually(trash_m);
-    utils_y             = water_y + trash_y;
+     var property            = $('#property').val();
+     var principal           = getVal('purchase-price');
+     var downpayment_rate    = getVal('downpayment-rate');
+     var downpayment         = getVal('purchase-price') * (downpayment_rate/100);
+     var loan_amount         = getVal('purchase-price') - downpayment;
+     var loan_rate           = getVal('loan-rate');
+     var loan_years          = getVal('loan-years');
+     var mortgage_m          = pmt(loan_amount, loan_rate / 100 / 12, loan_years * 12);
+     var mortgage_y          = annually(mortgage_m);
+     var tax_rate            = getVal('taxrate');
+     var property_tax_y      = getVal('taxval') * (tax_rate/1000);
+     var property_insure_y   = getVal('insurance');
+     var water_y             = getVal('water');
+     var trash_m             = getVal('trash');
+     var trash_y             = annually(trash_m);
+     var utils_y             = water_y + trash_y;
 
-    maintenance_factor  = getVal('maintenance-factor');
-    vacancy_factor  = getVal('vacancy-factor');
-    collections_factor  = getVal('collections-factor');
-    maintenance_y       = mortgage_y * (maintenance_factor/100);
-    vacancy_factor_y    = mortgage_y * (vacancy_factor/100);
-    collection_factor_y = mortgage_y * (collections_factor/100);
+     var maintenance_factor  = getVal('maintenance-factor');
+     var vacancy_factor  = getVal('vacancy-factor');
+     var collections_factor  = getVal('collections-factor');
+     var maintenance_y       = mortgage_y * (maintenance_factor/100);
+     var vacancy_factor_y    = mortgage_y * (vacancy_factor/100);
+     var collection_factor_y = mortgage_y * (collections_factor/100);
 
 
     $('#downpayment').val(downpayment);
@@ -162,7 +162,7 @@ function annually(val) {
 
 
 function getVal(field) {
-  return eval($('#'+field).val());
+  return selectors.get('#'+field).val();
 }
 
 
@@ -196,3 +196,15 @@ function GetURLParameter(sParam)
         }
     }
 }
+
+var collection = {};
+function selectorCache() {
+  function get_from_cache( selector ) {
+    if ( undefined === collection[ selector ] ) {
+      collection[ selector ] = $( selector );
+    }
+    return collection[ selector ];
+  }
+  return { get: get_from_cache };
+}
+var selectors = new selectorCache();
