@@ -19,7 +19,7 @@ $(function(){
 
   $('#purchase-price').val( GetURLParameter('price') || 100000 );
   $('#downpayment-rate').val( GetURLParameter('downrate') || 25 );
-  $('#loan-rate').val( GetURLParameter('loanrate') || 4.25);
+  $('#loan-rate').val( GetURLParameter('loanrate') || 4.375);
   $('#loan-years').val( GetURLParameter('loanyears') || 30);
 
   $('#taxval').val( GetURLParameter('taxable') || $('#purchase-price').val()/2 );
@@ -57,13 +57,14 @@ $(function(){
     trash_m             = getVal('trash');
     trash_y             = annually(trash_m);
     utils_y             = water_y + trash_y;
+    incoming_y          = annually(getVal('income-rent'));
 
     maintenance_factor  = getVal('maintenance-factor');
-    vacancy_factor  = getVal('vacancy-factor');
+    vacancy_factor      = getVal('vacancy-factor');
     collections_factor  = getVal('collections-factor');
-    maintenance_y       = mortgage_y * (maintenance_factor/100);
-    vacancy_factor_y    = mortgage_y * (vacancy_factor/100);
-    collection_factor_y = mortgage_y * (collections_factor/100);
+    maintenance_y       = incoming_y * (maintenance_factor/100);
+    vacancy_factor_y    = incoming_y * (vacancy_factor/100);
+    collection_factor_y = incoming_y * (collections_factor/100);
 
 
     $('#downpayment').val(downpayment);
