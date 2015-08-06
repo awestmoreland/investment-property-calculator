@@ -25,7 +25,7 @@ $(function(){
   $('#taxval').val( GetURLParameter('taxable') || $('#purchase-price').val()/2 );
   $('#taxrate').val( GetURLParameter('taxrate') || 49.6 );
 
-  $('#insurance').val( GetURLParameter('insurance') || 1200 );
+  $('#insurance').val( GetURLParameter('insurance') || 800 );
   $('#water').val( GetURLParameter('water') || 400 );
   $('#trash').val( GetURLParameter('trash') || 25 );
 
