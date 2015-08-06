@@ -66,7 +66,6 @@ $(function(){
     vacancy_factor_y    = incoming_y * (vacancy_factor/100);
     collection_factor_y = incoming_y * (collections_factor/100);
 
-
     $('#downpayment').val(downpayment);
     $('#loan-amount').val(loan_amount);
 
@@ -93,6 +92,13 @@ $(function(){
   // trigger change on first field when page loads
   $('#purchase-price').trigger('input');
 
+
+  // show subtotals
+  $('tr.outgoing').on('click',function(){
+    $('tr.subtotal').toggle();
+  });
+
+
 });
 
 
@@ -104,18 +110,31 @@ function toPercent(val) {
 
 function setTotals() {
 
-  var incoming_y = annually(getVal('income-rent'));
-  var outgoing_y = 0;
-
-  $('.output tbody tr.tally .val_annually').each(function(){
-    outgoing_y = outgoing_y + eval($(this).text());
-  });
+  var incoming_y          = annually(getVal('income-rent'));
+  var outgoing_y          = add_values($('.output tbody tr.tally .val_annually'));
 
   setVal('incoming', incoming_y);
   setVal('outgoing', outgoing_y);
   setVal('return', incoming_y - outgoing_y);
 
+  // Break out had costs vs. contingencies
+  var hard_cost_total_y   = add_values($('.output tbody tr.hardcost .val_annually'));
+  var contingency_total_y = add_values($('.output tbody tr.contingency .val_annually'));
+
+  setVal('subtotal_hardcosts', hard_cost_total_y);
+  setVal('subtotal_contingencies', contingency_total_y);
+
+
 }
+
+function add_values(collection) {
+  var total = 0;
+  $(collection).each(function(){
+    total = total + eval($(this).text());
+  });
+  return total;
+}
+
 
 function setURL(){
 
