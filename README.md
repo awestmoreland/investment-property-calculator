@@ -15,3 +15,6 @@ Make sure cash flow is positive by taking purchase price and running costs into 
 * Include option for one-off maintenance factor (new roof, etc.)
 * Make phone app version
 * Profit
+* Option to mark mortgage, property tax & insurance as escrowed. Show combined escrow value line item (with expand option)
+* Add lines for other uitilities (gas, electric)
+with option to mark as "paid by tenant". Combine into Utilities line item (or not)
